@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #inps{
+            width: 350px;
+            padding: 25px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <input type="text" placeholder="enter" id="inps">
+
+            <div>
+                <h3 id="show"></h3>
+            </div>
+        
+    </div>
+
+    <script>
+
+        let inp=document.getElementById("inps");
+        let out=document.getElementById("show")
+
+        inp.addEventListener("input",function(){
+            console.log(inp.value)
+            let pass = inp.value
+
+            if(pass.length < 8){
+                out.innerHTML="your value is less 8 caractor"
+                out.style.color="red"
+            }else{
+                console.log("hii bro")
+                if(pass.search(/[a-z]/)== -1){
+                    out.innerHTML="password is missing lower case"
+                    out.style.color="red"
+                }else if(pass.search(/[A-Z]/) == -1){
+                    out.innerHTML="password is missing uppar case"
+                    out.style.color="red"
+                }else if(pass.search(/[0-9]/) == -1){
+                    out.innerHTML="password is missing number case"
+                    out.style.color="red"
+                }else if(pass.search(/[@/%/#/@/*/$]/) == -1){
+                    out.innerHTML="password is missing symbol case"
+                    out.style.color="red"
+                }
+                else{
+                    out.innerHTML="password is strong"
+                    out.style.color="green"
+                }
+            }
+        })
+
+
+    </script>
+    
+</body>
+</html>
